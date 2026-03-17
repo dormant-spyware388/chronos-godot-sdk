@@ -1,3 +1,4 @@
+````md
 ![Chronos Engine](images/chronos-banner.png)
 
 # Chronos Godot SDK
@@ -21,28 +22,28 @@ Instead of NPCs forgetting everything between sessions, Chronos lets them **reme
 
 Copy the SDK into your project:
 
-
+```bash
 res://addons/chronos/
-
+````
 
 Files:
 
-
+```text
 Chronos.gd
 ChronosRESTClient.gd
 ChronosSSEClient.gd
 ChronosTypes.gd
 plugin.gd
 plugin.cfg
-
+```
 
 ---
 
 ## Enable the Plugin
 
-- Open: **Project → Project Settings → Plugins**  
-- Find **Chronos**  
-- Set to **Enabled**
+* Open: **Project → Project Settings → Plugins**
+* Find **Chronos**
+* Set to **Enabled**
 
 ---
 
@@ -60,82 +61,95 @@ Chronos.configure(
 Chronos.configure_runtime(true, 2, 50)
 
 Chronos.start()
-
 ```
 
 ---
 
-Recommended SDK Flow (MVP)
+## Recommended SDK Flow (MVP)
 
 Your game sends events → Chronos stores memory → Brain derives NPC state → your game reacts.
 
-Important Call 1 — Listen for NPC state updates
+---
 
-When Chronos updates an NPC’s state, your game listens for the update and reacts to the new behavior.
+## Important Call 1 — Listen for NPC State Updates
 
+When Chronos updates an NPC’s state, your game listens and reacts:
+
+```gdscript
 Chronos.npc_state_updated.connect(_on_npc_state_updated)
+```
 
-# Example handler for NPC updates
+### Example handler
+
+```gdscript
 func _on_npc_state_updated(row):
-
   var npc_id = row["npc_id"]
   var state = row["state"]
 
   print("NPC state updated:", npc_id, state)
-Important Call 2 — Send gameplay events
+```
 
-When something important happens in your game, send it to Chronos.
+---
 
+## Important Call 2 — Send Gameplay Events
+
+When something important happens in your game, send it to Chronos:
+
+```gdscript
 Chronos.append_event(
   "player_1",
   event_type,
   payload,
   true
 )
+```
 
-Example:
+### Example
 
+```gdscript
 Chronos.append_event(
   "player_1",
   "player_lied_to_guard",
-  {"context":"conversation"},
+  {"context": "conversation"},
   true
 )
+```
 
 Chronos will automatically:
 
-store the event
-
-run the Brain
-
-update NPC state
-
-push the update back to the game
+* Store the event
+* Run the Brain
+* Update NPC state
+* Push the update back to the game
 
 ---
 
+## Optional Call — Load Saved NPC State
 
-Optional Call — Load saved NPC state on startup
+```gdscript
 Chronos.get_npc_state("guard_1")
+```
 
-This ensures the NPC reflects saved memory immediately.
+Ensures the NPC reflects saved memory immediately.
 
 ---
 
-
-
-Example Project
+## Example Project
 
 Full demo:
-
-https://github.com/enginechronos/chronos-demo
-
-Docs
-
-https://chronos-magic-engine-live.vercel.app/docs
+[https://github.com/enginechronos/chronos-demo](https://github.com/enginechronos/chronos-demo)
 
 ---
 
-License
+## Docs
+
+[https://chronos-magic-engine-live.vercel.app/docs](https://chronos-magic-engine-live.vercel.app/docs)
+
+---
+
+## License
 
 MIT License
+
+```
+
