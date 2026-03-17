@@ -12,8 +12,8 @@ Instead of NPCs forgetting everything between sessions, Chronos lets them **reme
 
 ## Supported Versions
 
-- Godot 3.6
-- Godot 4.5
+- Godot 3.6  
+- Godot 4.5  
 
 ---
 
@@ -40,7 +40,7 @@ plugin.cfg
 
 ## Enable the Plugin
 
-- Open: Project → Project Settings → Plugins  
+- Open: **Project → Project Settings → Plugins**  
 - Find **Chronos**  
 - Set to **Enabled**
 
@@ -56,10 +56,14 @@ Chronos.configure(
   "npc_id"
 )
 
+# Plug-and-play runtime
 Chronos.configure_runtime(true, 2, 50)
+
 Chronos.start()
 
 ```
+
+---
 
 Recommended SDK Flow (MVP)
 
@@ -108,10 +112,17 @@ update NPC state
 
 push the update back to the game
 
+---
+
+
 Optional Call — Load saved NPC state on startup
 Chronos.get_npc_state("guard_1")
 
 This ensures the NPC reflects saved memory immediately.
+
+---
+
+
 
 Example Project
 
@@ -122,6 +133,8 @@ https://github.com/enginechronos/chronos-demo
 Docs
 
 https://chronos-magic-engine-live.vercel.app/docs
+
+---
 
 License
 
