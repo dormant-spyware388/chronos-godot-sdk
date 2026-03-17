@@ -184,5 +184,4 @@ Join the community or reach out directly.
 
 MIT License
 
-```
 
