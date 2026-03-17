@@ -1,13 +1,12 @@
 # CONTRIBUTING.md
 
-```md
 # Contributing to Chronos Godot SDK
 
 Thanks for your interest in contributing to the Chronos Godot SDK.
 
 This repository contains the Godot integration layer for Chronos Engine.
 
----
+
 
 ## What to contribute here
 
@@ -23,7 +22,7 @@ Good contributions:
 - documentation updates for Godot SDK
 - signal / runtime behavior fixes
 
----
+
 
 ## What NOT to contribute here
 
@@ -36,7 +35,7 @@ Please do NOT submit:
 
 Those belong in the main Chronos repository.
 
----
+
 
 ## Guidelines
 
@@ -45,7 +44,7 @@ Those belong in the main Chronos repository.
 - Do not break existing SDK API
 - Test changes with a demo scene before submitting
 
----
+
 
 ## Pull Requests
 
@@ -53,7 +52,7 @@ Those belong in the main Chronos repository.
 - Explain what changed and why
 - Include screenshots or demo if relevant
 
----
+
 
 ## Issues
 
@@ -63,7 +62,7 @@ If you find a bug:
 - include steps to reproduce
 - include logs if possible
 
----
+
 
 ## Scope
 
@@ -73,6 +72,6 @@ Godot SDK → client integration layer
 
 Chronos backend and core system are managed separately.
 
----
+
 
 Thanks for helping improve Chronos 🚀
