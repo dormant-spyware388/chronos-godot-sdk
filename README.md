@@ -1,4 +1,4 @@
-````md
+
 ![Chronos Engine](images/chronos-banner.png)
 
 # Chronos Godot SDK
